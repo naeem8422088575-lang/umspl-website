@@ -12,7 +12,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_METADATA.seo.url;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: %s | ${COMPANY_METADATA.abbreviation},
+    template: '%s | ' + COMPANY_METADATA.abbreviation,
     default: COMPANY_METADATA.seo.defaultTitle,
   },
   description: COMPANY_METADATA.seo.defaultDescription,
