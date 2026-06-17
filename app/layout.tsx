@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: ${siteUrl}/logo.png,
+        url: siteUrl + '/logo.png',
         width: 1200,
         height: 630,
       },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description: COMPANY_METADATA.seo.defaultDescription,
     images: [
       {
-        url: ${siteUrl}/logo.png,
+        url: siteUrl + '/logo.png',
         width: 1200,
         height: 630,
       },
