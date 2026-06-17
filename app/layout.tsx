@@ -12,7 +12,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_METADATA.seo.url;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    template: `%s | ${COMPANY_METADATA.abbreviation}`,
+    template: %s | ${COMPANY_METADATA.abbreviation},
     default: COMPANY_METADATA.seo.defaultTitle,
   },
   description: COMPANY_METADATA.seo.defaultDescription,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/logo.png`,
+        url: ${siteUrl}/logo.png,
         width: 1200,
         height: 630,
       },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     description: COMPANY_METADATA.seo.defaultDescription,
     images: [
       {
-        url: `${siteUrl}/logo.png`,
+        url: ${siteUrl}/logo.png,
         width: 1200,
         height: 630,
       },
