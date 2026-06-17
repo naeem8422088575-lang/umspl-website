@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: COMPANY_METADATA.officialName,
     description: COMPANY_METADATA.seo.defaultDescription,
