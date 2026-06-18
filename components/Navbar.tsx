@@ -43,8 +43,8 @@ export default function Navbar() {
               <Image 
                 src="/logo.png" 
                 alt={COMPANY_METADATA.abbreviation} 
-                width={40} 
-                height={40} 
+                width={48} 
+                height={48} 
                 className="rounded-full"
               />
               <span className="text-xl font-black tracking-wider text-white group-hover:text-ocean-light transition-colors">
