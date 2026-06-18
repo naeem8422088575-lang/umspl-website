@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { COMPANY_METADATA } from '../lib/constants';
 import { cn } from '../lib/utils';
@@ -39,9 +40,13 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Link href="/" className="flex flex-col group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-slate-900 rounded p-1">
               <span className="text-xl font-black tracking-wider text-white flex items-center gap-2 group-hover:text-ocean-light transition-colors">
-                <svg className="w-6 h-6 text-ocean" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
+                <Image 
+                  src="/logo.png" 
+                  alt={COMPANY_METADATA.abbreviation} 
+                  width={28} 
+                  height={28} 
+                  className="rounded"
+                />
                 {COMPANY_METADATA.abbreviation}
               </span>
               <span className="text-[10px] text-slate-400 tracking-[0.2em] font-bold uppercase mt-0.5 ml-8">
