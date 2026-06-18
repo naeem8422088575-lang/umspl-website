@@ -1,19 +1,36 @@
 'use client';
-import { COMPANY_METADATA } from '../lib/constants';
+
+import { usePathname } from 'next/navigation';
 
 export default function WhatsAppButton() {
-  const number = COMPANY_METADATA.phones[0].replace(/[^0-9]/g, '');
+  const pathname = usePathname();
+  
+  // Provide context based on current route
+  var context = 'General Inquiry';
+  if (pathname.indexOf('/vacancies') !== -1) context = 'Vacancies Page';
+  else if (pathname.indexOf('/services') !== -1) context = 'Services Page';
+  else if (pathname.indexOf('/contact') !== -1) context = 'Contact Page';
+
+  // Hardcoded correct number – always works
+  var phone = '+919768285966';
+  var message = 'Hello UMSPL Recruitment, I am reaching out regarding maritime opportunities. Context: ' + context;
+  var safeMessage = encodeURIComponent(message);
+  var link = 'https://wa.me/' + phone.replace(/[^0-9]/g, '') + '?text=' + safeMessage;
+
   return (
-    <a 
-      href={`https://wa.me/${number}`} 
-      target="_blank" 
+    <a
+      href={link}
+      target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-emerald-500 text-white p-4 rounded-full shadow-lg hover:bg-emerald-600 hover:scale-105 transition-all z-50 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-emerald-500/50"
-      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center transition-all hover:scale-110 group focus:outline-none focus:ring-4 focus:ring-[#25D366]/50"
+      aria-label="Contact Manning Desk via WhatsApp"
     >
-      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.031 0C5.385 0 .003 5.381.003 12.028c0 2.124.553 4.195 1.604 6.015L.003 24l6.113-1.604a11.96 11.96 0 005.915 1.564h.005c6.645 0 12.027-5.38 12.027-12.026C24.062 5.384 18.675 0 12.031 0zm0 21.986c-1.8 0-3.565-.483-5.11-1.398l-.367-.217-3.799.996.996-3.702-.238-.378a9.972 9.972 0 01-1.53-5.359c0-5.503 4.48-9.982 9.985-9.982 5.503 0 9.981 4.479 9.981 9.982 0 5.504-4.478 9.983-9.981 9.983h-.002zm5.474-7.481c-.301-.15-1.782-.879-2.057-.979-.276-.1-.478-.15-.678.15-.201.3-.778.979-.953 1.179-.175.2-.351.225-.651.075-1.428-.714-2.599-1.392-3.666-3.238-.175-.3-.018-.462.132-.612.135-.135.301-.351.451-.526.15-.175.201-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.635-.928-2.239-.243-.591-.49-.51-.678-.519-.175-.008-.376-.008-.576-.008s-.526.075-.801.375c-.275.3-1.053 1.029-1.053 2.509s1.078 2.911 1.228 3.111c.15.2 2.122 3.239 5.14 4.538 1.956.843 2.766.914 3.796.764.757-.111 2.33-.951 2.656-1.87.326-.92.326-1.71.226-1.87-.1-.15-.351-.225-.651-.375z" />
+      <svg className="w-7 h-7 fill-current" viewBox="0 0 24 24" role="img" aria-hidden="true">
+        <path d="M12.004 0C5.397 0 .06 5.348.06 11.954c0 2.097.546 4.142 1.587 5.946L.057 24l6.29-1.393c1.782.482 3.642.736 5.511.737 6.61 0 11.946-5.346 11.95-11.95A11.94 11.94 0 0012.004 0zm6.978 16.92c-.282.793-1.42 1.455-1.953 1.55-.47.085-1.085.127-1.745-.085a8.773 8.773 0 01-3.666-1.636 19.344 19.344 0 01-4.043-4.015 5.58 5.58 0 01-1.21-1.724c-.312-.622-.33-1.196-.067-1.673.235-.425.7-.93 1.002-1.222.093-.095.187-.123.28-.123.095 0 .188.01.262.014.093.004.216-.037.338.26.133.32.453 1.11.493 1.195.04.085.066.184.01.298-.057.113-.085.184-.17.283-.084.1-.178.226-.254.31-.085.095-.174.198-.075.37.1.17.434.72.93 1.16a10.05 10.05 0 001.353.94c.17.1.272.086.37-.03.1-.113.434-.51.55-.68.113-.17.227-.14.37-.085.14.057.903.425 1.06.51.155.085.26.127.296.198.038.07.038.425-.245 1.217z"/>
       </svg>
+      <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-slate-700">
+        Direct Operations Link
+      </span>
     </a>
   );
 }
