@@ -11,6 +11,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -38,19 +39,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           
           <div className="flex-shrink-0">
-            <Link href="/" className="flex flex-col group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-slate-900 rounded p-1">
-              <span className="text-xl font-black tracking-wider text-white flex items-center gap-2 group-hover:text-ocean-light transition-colors">
-                <Image 
-                  src="/logo.png" 
-                  alt={COMPANY_METADATA.abbreviation} 
-                  width={28} 
-                  height={28} 
-                  className="rounded"
-                />
+            <Link href="/" className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 focus:ring-offset-slate-900 rounded p-1">
+              <Image 
+                src="/logo.png" 
+                alt={COMPANY_METADATA.abbreviation} 
+                width={40} 
+                height={40} 
+                className="rounded-full"
+              />
+              <span className="text-xl font-black tracking-wider text-white group-hover:text-ocean-light transition-colors">
                 {COMPANY_METADATA.abbreviation}
-              </span>
-              <span className="text-[10px] text-slate-400 tracking-[0.2em] font-bold uppercase mt-0.5 ml-8">
-                Marine Services
               </span>
             </Link>
           </div>
@@ -103,6 +101,7 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Navigation Menu */}
       <div 
         className={cn(
           "lg:hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-slate-800 transition-all duration-200 ease-in-out shadow-2xl overflow-hidden",
