@@ -11,8 +11,8 @@ export default function WhatsAppButton() {
   else if (pathname.indexOf('/services') !== -1) context = 'Services Page';
   else if (pathname.indexOf('/contact') !== -1) context = 'Contact Page';
 
-  // Hardcoded correct number – always works
-  var phone = '+919768285966';
+  // Correct WhatsApp number: +91 97682 85965
+  var phone = '+919768285965';
   var message = 'Hello UMSPL Recruitment, I am reaching out regarding maritime opportunities. Context: ' + context;
   var safeMessage = encodeURIComponent(message);
   var link = 'https://wa.me/' + phone.replace(/[^0-9]/g, '') + '?text=' + safeMessage;
